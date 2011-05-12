@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minecraft</title>
+	<%= stylesheet_link_tag :all %>
+	<%= csrf_meta_tag %>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
+	<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:bold' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag "application" %>
+</head>
+<body>
+	
+	<div id="bg">
+		<%= image_tag("bg.jpg") %>
+	</div>
+	<div id="container">
+			
+		<header>
+			<span id="title"><%= link_to 'MINECRAFT SERVER CORPORATION', root_path %></span>
+			<br style="clear:both;">
+		</header>
+		
+		<nav id="toplinks">
+			<%= link_to 'Users' , users_path %>
+		  <a href="" >Search</a>
+			<% if user_signed_in? %>
+			<%= link_to 'Submit New Server', new_server_path %>
+			<%= link_to 'Logout', destroy_user_session_path %>
+			<% else %>
+			<%= link_to 'Create Account', new_user_registration_path %>
+			<%= link_to 'Login', new_user_session_path %>
+			<% end %>
+		</nav>
+		
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	
+	
+		<%= yield %>
+		
+	</div>
+	
+</body>
+</html>

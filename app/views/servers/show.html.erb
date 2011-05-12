@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<div id="server-content">
+	<p>
+	  <b>Name:</b>
+	  <%= @server.name %><br>
+	  submitted by: <%= @server.user.username unless @server.user.nil? %>  
+	</p>
+	
+	<p>
+	  <b>Url:</b>
+	  <%= @server.url %>
+	</p>
+	
+	<p>
+	  <b>Description:</b>
+	  <%= @server.description %>
+	</p>
+</div>
+<hr>
+<div id="comments"> 
+	
+	
+
+	<% if user_signed_in? %>
+		<div id="make-comment">
+			<%= form_for([@server, @server.comments.build]) do |f| %>
+			  <div class="lol">
+			    <%= f.text_area :body %><br>
+			    <%= f.submit %>
+			  </div>
+			<% end %>
+		</div>
+	<% end %>
+
+	<% @server.comments.each do |comment| %>
+		<div style="border:1px;">
+			<%= comment.user.username unless comment.user.nil? %><br>
+			<%= comment.body %><br>
+				<%= form_for([comment]) do |f| %>
+				  <div class="lol">
+				    <%= f.text_area :body %><br>
+				    <%= f.submit %>
+				  </div>
+				<% end %>
+			<%= link_to 'remove', comment, :confirm => 'Are you sure?', :method => :destroy %>
+		</div>
+
+	<% end %> 
+</div>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

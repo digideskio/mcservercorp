@@ -1,0 +1,20 @@
+<div id="user-list">
+	<% @users.each do |user| %>
+	<a href="<%= user_url(user)%>">
+		<span id="<%= user.id %>" class="user">
+			<img src="http://aggronn.com:3001/images/trans.png" class="avatar">
+			<span class="user-left">
+				<span class="username"><%= user.username %></span>
+		    	<span class="comment-count"></span>
+		    	<span class="user-email"><%= user.email %></span>
+	 	   	</span>
+	 	   	<span class="user-right">
+	 	   		<span class="user-bio"><%= user.bio %></span>
+			</span>
+	 	   <br style="clear:both;">
+		</span>
+	</a> 
+<% end %>
+</div>
+
+

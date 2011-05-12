@@ -1,0 +1,359 @@
+/*
+ * 		Universal CSS
+ */
+
+body {
+	background-color: #363636;
+	color: #333; 
+	margin:0px;
+	padding:0px;
+//	overflow: hidden;
+}
+#bg {
+	z-index: -10;
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0px;
+	left:0px;
+	overflow:hidden;
+}
+#bg img {
+	width: 100%;
+}
+body, p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:	 13px;
+	line-height: 18px;
+}
+hr {
+	clear: both;
+}
+pre {
+	background-color: #eee;
+	padding: 10px;
+	font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; }
+
+div.field, div.actions { margin-bottom: 10px; }
+
+.notice {
+	color: green;
+	margin:0px;
+}
+.alert {
+	margin:0px;
+}
+.field_with_errors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+#error_explanation {
+	width: 450px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 0;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 12px;
+	margin: -7px;
+	margin-bottom: 0px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#error_explanation ul li {
+	font-size: 12px;
+	list-style: square;
+}
+
+div.inline div { display: inline; border:0px; }
+#container {
+	width:992px;
+	margin-right:auto;
+	margin-left:auto;
+
+}
+
+
+/*
+ * 		Title and Navigation Bar
+ */
+
+#title {
+	font-family: 'Cabin Sketch', arial, serif;
+	font-size:4em;
+	line-height:1em;
+	}
+#title a, a:hover, a:visited {
+	text-decoration:none;
+}
+#toplinks {
+	background: #abcff4;
+	text-align: right;
+	padding:7px 0px 1px 0px;
+	border:1px solid black;
+	}
+#toplinks a {
+	padding: 0px 5px 0px 5px;
+	margin:0px 1px 1px 0px;
+	text-decoration: none;
+	font-size: 2em;
+	background: #abcff4;
+	}
+	
+	
+/*
+ * 		Front Page/Server List
+ */
+
+#server-list{
+	border-width: 0px 1px 1px 1px;
+	border-color:black;
+	border-style:solid;
+	background:url("../images/trans.png"); 
+	width: 950px;
+	padding:10px 20px 0px 20px;
+	margin:-10px 0px 0px 0px;
+}
+#server-list a{
+	text-decoration: none;
+
+}
+.server {
+	border-bottom:4px solid #363636;	
+	padding: 0px 0px 0px 30px;
+	height: 60px;
+	color:black;
+	background:url("../images/trans.png");
+	display: block;
+	text-decoration: none;
+}
+.server {
+	text-decoration: none;
+
+}
+#server-list :hover {
+	background:#59a0d8;
+}
+.server-left{
+	margin: 10px 0px 10px 0px;
+	float: left;
+	width:50%;
+}
+.server-right{
+	margin: 10px 0px 10px 0px;
+	float: right;
+	width:50%;
+}
+.serverbg {
+	margin-top: -80px;
+	background-color:white;
+	opacity:.45;
+	width: 100%;
+	height: 66px;
+	display:block;
+	position:relative;
+	z-index: -4;
+}
+.server div {
+	display: inline-block;
+}
+.comment-count {
+	width:20px;
+}
+.server-name {
+	color:#000;
+
+}
+.server-name h1 {
+	display: inline;
+	font-size:3em;
+	font-family:VT323;
+	font-weight:normal;
+	width:100px;
+	color:#c34949;
+}
+.server-name a {
+	color:#6c6c6c;
+	text-decoration: none;
+}
+.nameofserver a {
+	display: inline;
+	font-size:2em;
+	width:100px;
+	color:#0075b1;
+}
+.server-url {
+	border:0px;
+	width:100px;
+}
+.description {
+	border:0px;
+	text-align: left;
+	width:500px;
+	float:right;
+}	
+	
+	
+/*
+ * 		Show User Page
+ */
+ 
+#userbox {
+	border: 1px dotted black;
+	background:url("../images/trans.png");
+}
+#userbox div {
+}
+#history {
+	float: left;
+	width: 700px;
+	min-height: 500px;
+}
+#details {
+	float: right;
+	width: 300px;
+}
+#avatar {
+	height: 200px;
+}
+#info {
+	height: 400px;
+}
+#info div {
+	border: 0px;	
+}
+	
+	
+/*
+ * 		User Registration
+ */	
+ 
+#registration {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;	
+	}
+#registration input {
+	font-family: courier new,courier;
+	border-width:0px 0px 4px 0px;
+	font-size: 1.5em;
+	}
+#registration-basics {
+	float:left;
+	width: 400px;	
+	}
+#registration-other {
+	float:right;
+	width: 400px;	
+	}
+#registration-other textarea {
+	width:100%;
+}
+
+
+/*	==========================
+ * 		User List
+ * 	==========================
+ */	
+
+#user-list{
+	border-width: 0px 1px 1px 1px;
+	border-style: solid;
+	border-color: black;
+	background:url("../images/trans.png");
+}
+#user-list :hover {
+	background:#59a0d8;
+}
+#user-list a {
+	text-decoration: none;
+
+}
+.user {
+	height: 45px;
+	margin:0px 30px 0px 30px;
+	border-bottom: 3px solid #363636;
+	background:url("../images/trans.png");
+	display:block;
+}
+.user div {
+	display: inline;
+}
+.user-left {
+	width:200px;
+	margin:3px;
+	float:left;
+}
+.user-left span {
+	display: block;
+}
+.user-right {
+	text-align: left; 
+	margin-left: 50px;
+}
+.avatar {
+	margin:3px;
+	height:38px;
+	width:38px;
+	border:1px solid black;
+	float:left;
+}
+.username {
+	font-size: 20px;
+}
+ 
+
+/*
+ *		Show Server
+ */
+ 
+#server-content {
+	background:url("../images/trans.png");
+}
+#comments {
+	background:url("../images/trans.png");
+}
+#make-comment {
+	background: #ABCFF4;
+	clear: both;
+	padding:30px;
+}
+#make-comment input {
+	font-family: courier new,courier;
+	border-width:0px 0px 4px 0px;
+	font-size: 1.5em;
+}
+#make-comment #comment-body {
+	width:600px;
+	float:right;
+}
+#make-comment #comment-body textarea {
+	width:100%;
+	border:0px;
+}
+#make-comment #comment-meta {
+	width:330px;
+	float:left;
+}
+#make-comment #comment-meta input {
+	width: 100%;
+}
+
+.lol textarea {
+	height:150px;
+	width:500px;
+}

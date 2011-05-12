@@ -1,0 +1,27 @@
+<div id="server-list">
+	<% @servers.each do |s| %>
+		<a href="<%= server_url(s) %>">
+			
+			<span id="server-<%= s.id %>" class="server">
+														<!--    	<span class="comment-count"><%= s.comments.length %></span>  -->
+		    	<span class="server-left">
+			    	<span class="server-name">
+			    		<h1 id="nameofserver"><%= s.name %></h1> 
+																	<!--	    		<%= link_to 'Edit', edit_server_path(s) %> 
+																		    		<%= link_to 'Destroy', s, :confirm => 'Are you sure?', :method => :delete %>  -->
+			    	</span>
+			    	<br>
+					<span class="inline">
+				    	<span class="server-url"><%= s.url %></span>
+			    	</span>
+		    	</span>
+		    	<span class="server-right">
+		       		<span class="description"><%= s.description %></span>
+	       		</span>
+	       	</span>
+		</a>
+																			<!--	<span class="serverbg"> &nbsp; </span> -->
+	<% end %>
+</div>
+
+
