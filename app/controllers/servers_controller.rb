@@ -20,6 +20,15 @@ class ServersController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @server }
     end
+    
+  end
+  
+   def reply
+    @server = Server.find(params[:server_id])
+    @parent = Comment.find(params[:id])
+    params[:comment]['user'] = current_user
+    @comment = @parent.comments.reply(params[:comment])
+    redirect_to server_path(@server)
   end
 
   # GET /servers/new

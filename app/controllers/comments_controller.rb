@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	before_filter :authenticate_user!
+	before_filter :get_parent
 
 	
   # GET /comments
@@ -49,6 +50,14 @@ class CommentsController < ApplicationController
     redirect_to server_path(@server)
   end
   
+  def reply
+    @server = Server.find(params[:server_id])
+    @parent = Comment.find(params[:id])
+    params[:comment]['user'] = current_user
+    @comment = @parent.comments.reply(params[:comment])
+    # redirect_to server_path(@server)
+  end
+  
 
   # PUT /comments/1
   # PUT /comments/1.xml
@@ -76,5 +85,14 @@ class CommentsController < ApplicationController
       format.html { redirect_to server_path(@server) }
       format.xml  { head :ok }
     end
+  end
+  
+  protected
+  
+  def get_parent
+    @parent = Server.find_by_id(params[:server_id]) if params[:server_id]
+    @parent = Comment.find_by_id(params[:id]) if params[:id]
+
+    redirect_to root_path unless defined?(@parent)
   end
 end

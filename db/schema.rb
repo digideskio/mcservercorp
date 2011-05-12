@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110510032954) do
+ActiveRecord::Schema.define(:version => 20110512174343) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "server_id"
     t.integer  "user_id"
     t.boolean  "has_been_edited"
-    t.integer  "comments_id"
+    t.integer  "parent_id"
+    t.string   "parent_type"
   end
+
+  add_index "comments", ["parent_id", "parent_type"], :name => "index_comments_on_parent_id_and_parent_type"
 
   create_table "servers", :force => true do |t|
     t.string   "name"

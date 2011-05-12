@@ -7,8 +7,12 @@ Mcserverlist::Application.routes.draw do
  # devise_for :users
   resources :servers do
     resources :comments
+    get 'new_comment_comment', :on => :collection
+
   end
-  resources :comments, :belongs_to => :posts
+  resources :comments do
+    resources :comments
+  end
 
   
   # The priority is based upon order of creation:

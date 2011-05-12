@@ -3,7 +3,7 @@
 	<p>
 	  <b>Name:</b>
 	  <%= @server.name %><br>
-	  submitted by: <%= @server.user.username unless @server.user.nil? %>  
+	  submitted by: <%= @server.user.username %>  
 	</p>
 	
 	<p>
@@ -32,20 +32,7 @@
 		</div>
 	<% end %>
 
-	<% @server.comments.each do |comment| %>
-		<div style="border:1px;">
-			<%= comment.user.username unless comment.user.nil? %><br>
-			<%= comment.body %><br>
-				<%= form_for([comment]) do |f| %>
-				  <div class="lol">
-				    <%= f.text_area :body %><br>
-				    <%= f.submit %>
-				  </div>
-				<% end %>
-			<%= link_to 'remove', comment, :confirm => 'Are you sure?', :method => :destroy %>
-		</div>
-
-	<% end %> 
+<%= render :partial => 'comments/comment', :collection => @server.comments %>
 </div>
 
 <%= link_to 'Edit', edit_server_path(@server) %> |

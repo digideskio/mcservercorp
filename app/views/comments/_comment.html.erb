@@ -1,0 +1,7 @@
+		<div style="border:1px;">
+			<%= comment.user.username unless comment.user.nil? %><br>
+			<%= comment.body %><br>
+<%= link_to 'Add a Reply', new_comment_comment_path(comment) %>
+			<%= link_to 'remove', comment, :confirm => 'Are you sure?', :method => :destroy %>
+		</div>
+<%= render :partial => 'comments/comment', :collection => comment.comments %>
