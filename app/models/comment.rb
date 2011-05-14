@@ -3,9 +3,9 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   has_many :comments, :as => :parent
 
-  def server
+  def findserver
     return @server if defined?(@server)
-    @server = parent.is_a?(server) ? parent : parent.server
+    @server = parent.is_a?(Server) ? parent : parent.findserver
   end
   
 end

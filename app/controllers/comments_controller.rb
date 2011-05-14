@@ -45,12 +45,11 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
      
-    @server = Server.find(params[:server_id])
-    
+   # @server = Server.find(params[:server_id])
 		params[:comment]['user'] = current_user 
     @comment = @parent.comments.create(params[:comment])
-    #redirect_to server_path(@server)
-    redirect_to root_path
+    redirect_to server_path(@comment.findserver)
+    # redirect_to root_path
   end
   
   def reply
