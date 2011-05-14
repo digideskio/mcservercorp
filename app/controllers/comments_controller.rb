@@ -44,10 +44,13 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
+     
     @server = Server.find(params[:server_id])
+    
 		params[:comment]['user'] = current_user 
-    @comment = @server.comments.create(params[:comment])
-    redirect_to server_path(@server)
+    @comment = @parent.comments.create(params[:comment])
+    #redirect_to server_path(@server)
+    redirect_to root_path
   end
   
   def reply
@@ -91,7 +94,7 @@ class CommentsController < ApplicationController
   
   def get_parent
     @parent = Server.find_by_id(params[:server_id]) if params[:server_id]
-    @parent = Comment.find_by_id(params[:id]) if params[:id]
+    @parent = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
 
     redirect_to root_path unless defined?(@parent)
   end
