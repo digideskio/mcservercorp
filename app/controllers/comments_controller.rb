@@ -44,7 +44,6 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-     
    # @server = Server.find(params[:server_id])
 		params[:comment]['user'] = current_user 
     @comment = @parent.comments.create(params[:comment])
@@ -81,6 +80,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+    @server = @comment.findserver
     @comment.destroy
 
     respond_to do |format|

@@ -1,7 +1,8 @@
 		<div style="border:1px;">
 			<%= comment.user.username unless comment.user.nil? %><br>
 			<%= comment.body %><br>
-<%= link_to 'Add a Reply', new_comment_comment_path(:comment_id => comment.id) unless comment.id.nil? %>
-			<%= link_to 'remove', comment, :confirm => 'Are you sure?', :method => :destroy %>
+      <%= link_to 'Add a Reply', new_comment_comment_path(:comment_id => comment.id) unless comment.id.nil? %>
+			<%= button_to 'remove', comment_path(comment.id), :confirm => 'Are you sure?', :method => :delete unless comment.id.nil? %>
+			<%= comment.id %>
 		</div>
-<%= render :partial => 'comments/comment', :collection => comment.comments %>
+    <%= render :partial => 'comments/comment', :collection => comment.comments %>

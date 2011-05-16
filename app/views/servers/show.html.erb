@@ -32,10 +32,10 @@
 		</div>
 	<% end %>
 
-<% if !@server.comments.empty? %>
-<%= render :partial => 'comments/comment', :collection => @server.comments %>
-<% end %>
-</div>
+  <% if !@server.comments.empty? %>
+    <%= render :partial => 'comments/comment', :collection => @server.comments %>
+  <% end %>
+  </div>
 
 <%= link_to 'Edit', edit_server_path(@server) %> |
 <%= link_to 'Back', servers_path %>

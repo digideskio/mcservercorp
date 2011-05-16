@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110512174343) do
+ActiveRecord::Schema.define(:version => 20110516005127) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110512174343) do
     t.boolean  "has_been_edited"
     t.integer  "parent_id"
     t.string   "parent_type"
+    t.integer  "numberofcomments"
   end
 
   add_index "comments", ["parent_id", "parent_type"], :name => "index_comments_on_parent_id_and_parent_type"
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20110512174343) do
     t.boolean  "status"
     t.boolean  "whitelisted"
     t.integer  "users_id"
+    t.integer  "numberofcomments"
   end
 
   create_table "users", :force => true do |t|

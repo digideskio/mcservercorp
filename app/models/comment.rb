@@ -7,5 +7,4 @@ class Comment < ActiveRecord::Base
     return @server if defined?(@server)
     @server = parent.is_a?(Server) ? parent : parent.findserver
   end
-  
 end
