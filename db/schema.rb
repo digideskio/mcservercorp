@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110516005127) do
+ActiveRecord::Schema.define(:version => 20110516043703) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20110516005127) do
     t.boolean  "whitelisted"
     t.integer  "users_id"
     t.integer  "numberofcomments"
+    t.integer  "votecount"
   end
 
   create_table "users", :force => true do |t|
@@ -71,9 +72,16 @@ ActiveRecord::Schema.define(:version => 20110516005127) do
     t.integer  "comment_count"
     t.date     "birthday"
     t.integer  "server_id"
+    t.integer  "votecount"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer "votable_id"
+    t.string  "votable_type"
+    t.integer "user_id"
+  end
 
 end

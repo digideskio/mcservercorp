@@ -2,6 +2,8 @@ class Comment < ActiveRecord::Base
   belongs_to :parent, :polymorphic => true
   belongs_to :user
   has_many :comments, :as => :parent
+  has_many :votes
+  has_many :users, :through => :votes
 
   def findserver
     return @server if defined?(@server)

@@ -3,10 +3,15 @@ Mcserverlist::Application.routes.draw do
   
     devise_for :users, :path => "", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'users', :sign_up => 'new' }
 
-  resources :users
+  resources :users do
+    resources :votes
+  end
  # devise_for :users
   resources :servers do
-    resources :comments
+    resources :votes
+    resources :comments do
+      resources :votes
+    end
     get 'new_comment_comment', :on => :collection
 
   end
